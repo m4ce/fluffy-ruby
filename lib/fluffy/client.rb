@@ -1,7 +1,7 @@
 require 'httpclient'
 require 'json'
 
-require_relative 'client/api'
+#require_relative 'api'
 require_relative 'sessions'
 
 module Fluffy
@@ -19,7 +19,7 @@ module Fluffy
     def initialize(url:, version: 1)
       @url = url
       @version = version
-      @@api = API.new(url: URI.join(url, "v#{version}"))
+      @@api = RESTClient.new(url: URI.join(url, "v#{version}"))
       @sessions = Sessions.new
     end
 
