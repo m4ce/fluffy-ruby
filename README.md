@@ -7,6 +7,8 @@ To install it simply issue the following command:
 ```
 gem install fluffy-ruby
 ```
+## Usage
+Online documentation is available at [rubydoc](http://www.rubydoc.info/gems/fluffy-ruby/)
 
 ## Contact
 Matteo Cerutti - matteo.cerutti@hotmail.co.uk
