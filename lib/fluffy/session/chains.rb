@@ -39,7 +39,7 @@ module Fluffy
       # @return [Hash, nil] API response
       #
       def update(name:, **params)
-        @@api.post(endpoint: self.endpoint + [name], params: params)
+        @@api.patch(endpoint: self.endpoint + [name], params: params)
       end
 
       # Delete an entry from the session chains
