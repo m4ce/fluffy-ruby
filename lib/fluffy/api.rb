@@ -49,6 +49,19 @@ module Fluffy
         data['message']
       end
 
+      # Perform a HTTP PATCH request
+      #
+      # @param endpoint [Array[String], String] HTTP API endpoint
+      # @param params [Hash] HTTP API body
+      # @return [Hash, nil] API JSON response
+      #
+      def patch(endpoint:, params: {})
+        resp = self.http.patch([self.url, endpoint.is_a?(Array) ? endpoint.join('/') : endpoint].join('/'), params.to_json, {'Content-Type' => 'application/json', 'Accept' => 'application/json'})
+        data = JSON.parse(resp.body)
+        raise APIError.new(data['message'], data['error'], resp.status) if resp.status >= 400
+        data['message']
+      end
+
       # Perform a HTTP DELETE request
       #
       # @param endpoint [Array[String], String] HTTP API endpoint
