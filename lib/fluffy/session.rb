@@ -40,6 +40,12 @@ module Fluffy
       @chains = Chains.new(endpoint: @endpoint)
     end
 
+    # Test the session configuration
+    #
+    def test!
+      @@api.post(endpoint: self.endpoint + ['test'])
+    end
+
     # Commit the session configuration
     #
     # @param rollback [Boolean] Enable rollback `defaults to false`
