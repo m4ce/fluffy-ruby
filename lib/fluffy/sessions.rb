@@ -39,7 +39,7 @@ module Fluffy
     # @return [nil]
     #
     def delete(name:)
-      @@api.delete(endpoint: self.endpoint)
+      @@api.delete(endpoint: self.endpoint + [name])
     end
   end
 end
