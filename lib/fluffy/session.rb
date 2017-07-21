@@ -52,7 +52,7 @@ module Fluffy
     # @param rollback_interval [Integer] Rollback configuration at the given interval (seconds) `defaults to 60`
     #
     def commit!(rollback: true, rollback_interval: 60)
-      @@api.post(endpoint: self.endpoint + ['commit'], params: params)
+      @@api.post(endpoint: self.endpoint + ['commit'], params: {'rollback' => rollback, 'rollback_interval' => rollback_interval})
     end
 
     # Confirm the session configuration
