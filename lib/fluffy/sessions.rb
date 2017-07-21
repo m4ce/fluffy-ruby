@@ -32,5 +32,14 @@ module Fluffy
     def add(name:, **params)
       Session.new(name: name, **params)
     end
+
+    # Delete a session
+    #
+    # @param name [String] Session key
+    # @return [nil]
+    #
+    def delete(name:)
+      @@api.delete(endpoint: self.endpoint)
+    end
   end
 end
