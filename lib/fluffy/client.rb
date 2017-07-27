@@ -62,5 +62,13 @@ module Fluffy
     def services
       @@api.get(endpoint: "services")
     end
+
+    # Retrieve the active rollback checks
+    #
+    # @return [Hash] List of rollback checks
+    #
+    def services
+      @@api.get(endpoint: "rollback_checks")
+    end
   end
 end
