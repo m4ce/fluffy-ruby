@@ -1,6 +1,6 @@
 module Fluffy
   class Session
-    class Rollback_checks
+    class Checks
       include Fluffy::API
 
       # @return [String] The session endpoint
@@ -11,7 +11,7 @@ module Fluffy
       # @param endpoint [String] API session endpoint
       #
       def initialize(endpoint:)
-        @endpoint = endpoint + ['services']
+        @endpoint = endpoint + ['checks']
       end
 
       # Retrieve the session rollback checks

@@ -3,6 +3,7 @@ require_relative 'session/services'
 require_relative 'session/rules'
 require_relative 'session/interfaces'
 require_relative 'session/chains'
+require_relative 'session/checks'
 
 module Fluffy
   class Session
@@ -18,6 +19,8 @@ module Fluffy
     attr_reader :interfaces
     # @return [Fluffy::Session::Chains] The session chains
     attr_reader :chains
+    # @return [Fluffy::Session::Checks] The session rollback checks
+    attr_reader :checks
     # @return [String] The session endpoint
     attr_reader :endpoint
 
@@ -38,6 +41,7 @@ module Fluffy
       @rules = Rules.new(endpoint: @endpoint)
       @interfaces = Interfaces.new(endpoint: @endpoint)
       @chains = Chains.new(endpoint: @endpoint)
+      @checks = Checks.new(endpoint: @endpoint)
     end
 
     # Test the session configuration
