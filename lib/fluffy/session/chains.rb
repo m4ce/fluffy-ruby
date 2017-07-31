@@ -28,8 +28,8 @@ module Fluffy
       # @param **params [Hash] Any number of parameters to push into the Hash
       # @return [Hash, nil] API response
       #
-      def add(name:, **params)
-        @@api.post(endpoint: self.endpoint + [name], params: params)
+      def add(name:, table:, **params)
+        @@api.post(endpoint: self.endpoint + [table, name], params: params)
       end
 
       # Update an existing entry in the session chains
@@ -38,8 +38,8 @@ module Fluffy
       # @param **params [Hash] Any number of parameters to push into the Hash
       # @return [Hash, nil] API response
       #
-      def update(name:, **params)
-        @@api.patch(endpoint: self.endpoint + [name], params: params)
+      def update(name:, table:, **params)
+        @@api.patch(endpoint: self.endpoint + [table, name], params: params)
       end
 
       # Delete an entry from the session chains
@@ -47,8 +47,8 @@ module Fluffy
       # @param name [String] Entry name
       # @return [Hash, nil] API response
       #
-      def delete(name:)
-        @@api.delete(endpoint: self.endpoint + [name])
+      def delete(name:, table:)
+        @@api.delete(endpoint: self.endpoint + [table, name])
       end
     end
   end
