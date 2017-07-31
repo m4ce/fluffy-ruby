@@ -29,7 +29,7 @@ module Fluffy
       # @return [Hash, nil] API response
       #
       def add(name:, **params)
-        self.api.post(endpoint: self.endpoint + [name], params: params)
+        @@api.post(endpoint: self.endpoint + [name], params: params)
       end
 
       # Update an existing entry in the session interfaces
