@@ -57,9 +57,11 @@ module Fluffy
       #
       def patch(endpoint:, params: {})
         resp = self.http.patch([self.url, endpoint.is_a?(Array) ? endpoint.join('/') : endpoint].join('/'), params.to_json, {'Content-Type' => 'application/json', 'Accept' => 'application/json'})
-        data = JSON.parse(resp.body)
-        raise APIError.new(data['message'], data['error'], resp.status) if resp.status >= 400
-        data['message']
+        if resp.body.empty?
+          data = JSON.parse(resp.body)
+          raise APIError.new(data['message'], data['error'], resp.status) if resp.status >= 400
+          data['message']
+        end
       end
 
       # Perform a HTTP DELETE request
