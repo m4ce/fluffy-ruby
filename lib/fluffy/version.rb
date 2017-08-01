@@ -1,5 +1,5 @@
 module Fluffy
-  VERSION = "0.0.13"
+  VERSION = "0.0.14"
 
   def self.version
     VERSION
